@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "{{cookiecutter.project_name}}"
+version = "0.1.0"
+description = ""
+authors = ["{{cookiecutter.author}} <{{cookiecutter.email}}>"]
+license = "{{cookiecutter.license}}"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+typer = {extras = ["all"], version = "^0.7.0"}
+
+
+[tool.poetry.group.dev.dependencies]
+nox = "^2022.11.21"
+pytest = "^7.3.1"
+mypy = "^1.2.0"
+pylint = "^2.17.2"
+black = "^23.3.0"
+isort = "^5.12.0"
+
+[tool.pylint.format]
+max-line-length = "88"
+
+[tool.mypy]
+disallow_untyped_defs = true
+warn_return_any = true
+show_error_codes = true
+warn_unused_ignores = true
+exclude = "tests|noxfile.py"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
